@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Para Valery ??</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg, #fde2ff, #e0f7ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .card {
+      background: white;
+      max-width: 720px;
+      padding: 40px 30px 50px;
+      border-radius: 24px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.18);
+      text-align: center;
+      position: relative;
+      animation: fadeIn 2s ease;
+    }
+    h1 {
+      color: #c91873;
+      margin-bottom: 16px;
+      font-size: 32px;
+      animation: glow 3s infinite;
+    }
+    p {
+      color: #444;
+      font-size: 18px;
+      line-height: 1.65;
+      margin: 14px 0;
+    }
+    strong { color: #c91873; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px #ffd6eb; }
+      50% { text-shadow: 0 0 15px #ff9fd1; }
+      100% { text-shadow: 0 0 5px #ffd6eb; }
+    }
+
+    .heart {
+      position: fixed;
+      width: 18px;
+      height: 18px;
+      background: #ff9fd1;
+      transform: rotate(45deg);
+      animation: float 10s linear infinite;
+      opacity: 0.5;
+      z-index: 0;
+    }
+    .heart::before,
+    .heart::after {
+      content: '';
+      width: 18px;
+      height: 18px;
+      background: #ff9fd1;
+      border-radius: 50%;
+      position: absolute;
+    }
+    .heart::before { top: -9px; left: 0; }
+    .heart::after { left: -9px; top: 0; }
+    @keyframes float {
+      from { transform: translateY(110vh) rotate(45deg); }
+      to { transform: translateY(-10vh) rotate(45deg); }
+    }
+
+    .sparkle {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: gold;
+      border-radius: 50%;
+      animation: sparkle 4s infinite;
+      opacity: 0.8;
+      z-index: 0;
+    }
+    @keyframes sparkle {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.4); opacity: 1; }
+      100% { transform: scale(0); opacity: 0; }
+    }
+
+    .controls {
+      margin-top: 30px;
+    }
+    button {
+      background: linear-gradient(135deg, #ff7eb3, #ff4d9d);
+      border: none;
+      border-radius: 30px;
+      padding: 12px 22px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 28px;
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/02/23/audio_7f9c5f8e4b.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+  <h1>Valery, mi valiente ?</h1>
+
+  <p>Quiero que sepas algo muy importante:<br>
+  tú no eres tu condición,<br>
+  tú eres mucho más grande que eso.</p>
+
+  <p>Desde que eras pequeña, tu cuerpo te ha enseñado a ser fuerte, incluso cuando tú no lo sabías.<br>
+  Hay días en los que el dolor aparece, y no es justo, lo sé.<br>
+  Pero ese dolor no te define, no te limita y no decide por ti.</p>
+
+  <p>Eres una niña valiente.<br>
+  Valiente no es quien nunca siente dolor,<br>
+  valiente es quien sigue soñando a pesar de él.</p>
+
+  <p>Tu cuerpo es especial, sí.<br>
+  Y tú también lo eres.</p>
+
+  <p>Vas a poder estudiar, reír, amar, viajar y cumplir tus sueños.<br>
+  Algunos caminos los recorrerás con más cuidado,<br>
+  pero llegarás igual…<br>
+  porque tienes algo que no se aprende en los libros:<br>
+  <strong>coraje</strong>.</p>
+
+  <p>Nunca estarás sola.<br>
+  Tu familia camina contigo.<br>
+  Tus médicos te acompañan.<br>
+  Y yo, siempre, siempre estaré aquí para ti.</p>
+
+  <p><strong>Cree en ti, Valery.</strong><br>
+  El mundo necesita niñas fuertes como tú.</p>
+
+  <div class="controls">
+    <button onclick="toggleMusic()">?? Activar / Pausar música</button>
+  </div>
+
+  <footer>Con todo mi amor,<br>Papá ??</footer>
+</div>
+
+<script>
+  const music = document.getElementById('music');
+  function toggleMusic() {
+    if (music.paused) music.play(); else music.pause();
+  }
+
+  for (let i = 0; i < 20; i++) {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = (8 + Math.random() * 8) + 's';
+    document.body.appendChild(heart);
+  }
+
+  for (let i = 0; i < 25; i++) {
+    const sparkle = document.createElement('div');
+    sparkle.className = 'sparkle';
+    sparkle.style.left = Math.random() * 100 + 'vw';
+    sparkle.style.top = Math.random() * 100 + 'vh';
+    sparkle.style.animationDelay = Math.random() * 4 + 's';
+    document.body.appendChild(sparkle);
+  }
+</script>
+
+</body>
+</html>
